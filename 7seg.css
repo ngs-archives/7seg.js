@@ -1,0 +1,31 @@
+.seven-segment {
+  position: relative;
+  display: inline-block;
+  width: 54px; height: 91px;
+}
+
+.seven-segment span {
+  display: block;
+  background: url(7seg.png) no-repeat 0 0;
+  width: 54px; height: 91px;
+  position: absolute;
+  top: 0; left: 0;
+}
+
+.seven-segment span.seg-a  { background-position:  -54px      0; }
+.seven-segment span.seg-b  { background-position:  -54px  -91px; }
+.seven-segment span.seg-c  { background-position:  -54px -182px; }
+.seven-segment span.seg-d  { background-position:  -54px -273px; }
+.seven-segment span.seg-e  { background-position:  -54px -364px; }
+.seven-segment span.seg-f  { background-position:  -54px -455px; }
+.seven-segment span.seg-g  { background-position:  -54px -546px; }
+.seven-segment span.seg-dp { background-position:  -54px -637px; }
+
+.seven-segment.seg-a  span.seg-a  { background-position:  0       0; }
+.seven-segment.seg-b  span.seg-b  { background-position:  0   -91px; }
+.seven-segment.seg-c  span.seg-c  { background-position:  0  -182px; }
+.seven-segment.seg-d  span.seg-d  { background-position:  0  -273px; }
+.seven-segment.seg-e  span.seg-e  { background-position:  0  -364px; }
+.seven-segment.seg-f  span.seg-f  { background-position:  0  -455px; }
+.seven-segment.seg-g  span.seg-g  { background-position:  0  -546px; }
+.seven-segment.seg-dp span.seg-dp { background-position:  0  -637px; }

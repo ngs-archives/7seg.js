@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="7seg.css">
+    <script src="7seg.js"></script>
+    <script>
+      
+      function segHTML(bytes) {
+        var ar = "dp,a,b,c,d,e,f,g".split(',')
+          , spans = []
+          , klass = ['seven-segment']
+          , b, t, i
+          ;
+        for(i in ar) {
+          t = ar[i];
+          b = bytes[i] == (i == 0? 0 : 1);
+          if(b) klass.push('seg-'+t);
+          spans.push('<span class="seg-'+t+'"></span>');
+        }
+        return '<div class="'+klass.join(' ')+'">' + spans.join('') + '</div>';
+      }
+    </script>
+  </head>
+  <body>
+    <script>
+    
+      var chars = ""
+        , i = "-".charCodeAt(0)
+        , l = "z".charCodeAt(0)
+        , ar = []
+        , segs
+        ;
+      for(;i<l;i++) chars += String.fromCharCode(i);
+      
+      segs = new SevenSegment(chars).getByteArray();
+    
+      document.write(function(ar){
+        var html = [];
+        for(var i in ar) {
+          html.push(segHTML(ar[i]));
+        }
+        return html.join("");
+      }([
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0, 0, 0, 0],
+        [1, 1, 0, 0, 0, 0, 0, 0],
+        [1, 0, 1, 0, 0, 0, 0, 0],
+        [1, 0, 0, 1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 1, 0, 0, 0],
+        [1, 0, 0, 0, 0, 1, 0, 0],
+        [1, 0, 0, 0, 0, 0, 1, 0],
+        [1, 0, 0, 0, 0, 0, 0, 1]
+      ].concat(segs)));
+    
+    </script>
+  </body>
+</html>
